@@ -12,6 +12,8 @@ var score=0;
 
 var gameOver, restart;
 
+var jumpSound;
+
 
 
 function preload(){
@@ -21,6 +23,8 @@ function preload(){
   groundImage = loadImage("ground2.png");
   
   cloudImage = loadImage("cloud.png");
+  
+  jumpSound = loadSound("jump.mp3")
   
   obstacle1 = loadImage("obstacle1.png");
   obstacle2 = loadImage("obstacle2.png");
@@ -79,6 +83,7 @@ function draw() {
   
     if(keyDown("space") && trex.y >= 159) {
       trex.velocityY = -12;
+      jumpSound.play();
     }
   
     trex.velocityY = trex.velocityY + 0.8
